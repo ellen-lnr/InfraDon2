@@ -1,0 +1,214 @@
+/* Styles généraux */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Conteneur principal */
+.home {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Titre principal */
+.home h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Loader */
+.loading {
+    text-align: center;
+    font-size: 1.2em;
+    color: #888;
+}
+
+/* Styles pour les posts */
+.posts {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.post {
+    position: relative;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.post:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.post h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.meta {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.extract {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Texte complet dans la balise details */
+.full-text summary {
+    cursor: pointer;
+    color: #0073e6;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.full-text summary:hover {
+    color: #005bb5;
+}
+
+.full-text p {
+    padding-top: 8px;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* Commentaires */
+.comments {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.comments h3 {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.comment {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f9fafc;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    border: 1px solid #e0e0e0;
+}
+
+.comment-content {
+    display: flex;
+    gap: 8px;
+    color: #444;
+}
+
+.comment-author {
+    font-weight: bold;
+    color: #555;
+}
+
+.comment-text {
+    color: #444;
+}
+
+.comment-likes {
+    margin-left: auto;
+    font-size: 0.9em;
+    color: #999;
+}
+
+/* Formulaire d'ajout de post */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+}
+
+input, textarea {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+button {
+    padding: 10px;
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+}
+
+button:hover {
+    background-color: #005bb5;
+}
+
+/* Messages de succès et d'erreur */
+.error, .success {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+
+/* Bouton supprimer */
+button.delete-post {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff4d4d;
+    color: white;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.delete-post:hover {
+    background-color: #e63946;
+}
