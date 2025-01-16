@@ -1,0 +1,243 @@
+/* Général */
+#app {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--color-background-alt);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-weight: 400;
+}
+
+/* Header de l'application */
+.app-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 1rem 0;
+  background: var(--color-background-alt);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.app-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--color-heading-alt);
+  margin: 0;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+/* Palette de couleurs */
+:root {
+  --color-background: #fdfdfd;
+  --color-background-alt: #f4f4f7;
+  --color-body-background: #e7eaf3;
+
+  --color-item-background: #ffffff;
+  --color-accent: hsl(180, 65%, 50%);
+  --color-heading-alt: hsl(210, 22%, 25%);
+  --color-text: hsl(210, 18%, 30%);
+}
+
+/* Thème sombre */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #1e293b;
+    --color-background-alt: #2b374b;
+    --color-body-background: #141c2c;
+
+    --color-item-background: #243045;
+    --color-accent: hsl(180, 65%, 70%);
+    --color-heading-alt: hsl(200, 30%, 90%);
+    --color-text: hsl(210, 25%, 85%);
+  }
+}
+
+/* Styles généraux */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--color-body-background);
+  color: var(--color-text);
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Container principal */
+.todo-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: black;
+  font-weight: 800;
+}
+
+/* Section Ajouter une To-Do */
+.create-todo,
+.todos-display {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+}
+
+/* Input pour la To-Do */
+.todo-input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Groupement des boutons */
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Boutons communs */
+button {
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Bouton Ajouter */
+.btn-add {
+  background-color: #4caf50;
+  color: white;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.btn-add:hover {
+  background-color: #45a049;
+}
+
+/* Bouton Mise à jour */
+.btn-update {
+  background-color: #007bff;
+  color: white;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.btn-update:hover {
+  background-color: #0056b3;
+}
+
+/* Bouton Info */
+.btn-display {
+  background-color: #ffa500;
+  color: white;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.btn-display:hover {
+  background-color: #cc8400;
+}
+
+/* Liste des To-Do */
+.todos-display ul {
+  padding: 0;
+  list-style: none;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  margin: 8px 0;
+  background-color: #e8e8e8;
+  border-radius: 5px;
+}
+
+.todo-item .todo-actions {
+  display: flex;
+  gap: 10px; /* Espacement entre les boutons */
+}
+
+/* Tâche terminée */
+.todo-completed {
+  background-color: #e6ffe6; /* Fond vert */
+}
+
+.todo-completed span {
+  color: #2d662d; /* Texte en vert foncé */
+  text-decoration: line-through; /* Texte barré */
+}
+
+/* Bouton Terminer */
+.btn-complete {
+  background-color: #4caf50;
+  color: white;
+  font-size: 1.2rem;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-complete:hover {
+  background-color: #45a049;
+}
+
+/* Bouton Supprimer */
+.btn-delete {
+  background-color: #f44336;
+  color: white;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.btn-delete:hover {
+  background-color: #d32f2f;
+}
+
+/* Message d'information */
+.info-message {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f0f9ff;
+  color: #0369a1;
+  border: 1px solid #3b82f6;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
