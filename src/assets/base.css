@@ -1,15 +1,51 @@
+/* Palette de couleurs */
+:root {
+  --color-background: #2c2c2c; /* Fond gris foncé pour la page */
+  --color-background-alt: #393939; /* Fond des cartes */
+  --color-body-background: #1f1f1f; /* Fond global de la page */
+
+  --color-primary: #4caf50; /* Vert pour les actions principales */
+  --color-secondary: #2196f3; /* Bleu secondaire (bouton "actualiser") */
+  --color-accent: #f44336; /* Rouge pour les actions dangereuses */
+
+  --color-heading: #ffffff; /* Blanc pour les titres */
+  --color-text: #cccccc; /* Gris clair pour le texte */
+  --color-border: #555555; /* Gris foncé pour les bordures */
+}
+
+/* Thème sombre (reste inchangé car déjà adapté) */
+
 /* Général */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--color-body-background); /* Fond global */
+  color: var(--color-text);
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Application */
 #app {
   max-width: 1100px;
   margin: 2rem auto;
   padding: 2rem;
-  background: var(--color-background-alt);
+  background: var(--color-background-alt); /* Fond des blocs */
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); /* Ombre plus sombre */
   font-weight: 400;
 }
 
-/* Header de l'application */
+/* Header */
 .app-header {
   text-align: center;
   margin-bottom: 3rem;
@@ -21,55 +57,10 @@
 .app-title {
   font-size: 2.4rem;
   font-weight: 700;
-  color: var(--color-heading-alt);
+  color: var(--color-heading);
   margin: 0;
   line-height: 1.2;
   text-transform: uppercase;
-}
-
-/* Palette de couleurs */
-:root {
-  --color-background: #fdfdfd;
-  --color-background-alt: #f4f4f7;
-  --color-body-background: #e7eaf3;
-
-  --color-item-background: #ffffff;
-  --color-accent: hsl(180, 65%, 50%);
-  --color-heading-alt: hsl(210, 22%, 25%);
-  --color-text: hsl(210, 18%, 30%);
-}
-
-/* Thème sombre */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: #1e293b;
-    --color-background-alt: #2b374b;
-    --color-body-background: #141c2c;
-
-    --color-item-background: #243045;
-    --color-accent: hsl(180, 65%, 70%);
-    --color-heading-alt: hsl(200, 30%, 90%);
-    --color-text: hsl(210, 25%, 85%);
-  }
-}
-
-/* Styles généraux */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  min-height: 100vh;
-  background: var(--color-body-background);
-  color: var(--color-text);
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  line-height: 1.8;
-  transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* Container principal */
@@ -77,32 +68,36 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  color: black;
-  font-weight: 800;
 }
 
 /* Section Ajouter une To-Do */
 .create-todo,
-.todos-display {
+.todos-display,
+.search-section {
   padding: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-border);
   border-radius: 10px;
-  background-color: #f8f8f8;
+  background-color: var(--color-background-alt);
+  margin-bottom: 20px;
 }
 
-/* Input pour la To-Do */
-.todo-input {
+/* Input */
+.todo-input,
+.search-input {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-border);
   border-radius: 5px;
+  background-color: var(--color-body-background);
+  color: var(--color-text);
 }
 
 /* Groupement des boutons */
 .button-group {
   display: flex;
-  gap: 10px;
+  justify-content: center; /* Centre les boutons */
+  gap: 20px; /* Ajoute un espace entre les boutons */
   margin-top: 10px;
 }
 
@@ -118,126 +113,102 @@ button {
 
 /* Bouton Ajouter */
 .btn-add {
-  background-color: #4caf50;
-  color: white;
-  font-size: 1.5rem;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: var(--color-background-alt);
 }
 
 .btn-add:hover {
-  background-color: #45a049;
+  background-color: #388e3c;
 }
 
-/* Bouton Mise à jour */
+/* Bouton Actualiser */
 .btn-update {
-  background-color: #007bff;
-  color: white;
-  font-size: 1.5rem;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
-
-.btn-update:hover {
-  background-color: #0056b3;
-}
-
-/* Bouton Info */
-.btn-display {
-  background-color: #ffa500;
-  color: white;
-  font-size: 1.5rem;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
-
-.btn-display:hover {
-  background-color: #cc8400;
-}
-
-/* Liste des To-Do */
-.todos-display ul {
-  padding: 0;
-  list-style: none;
-}
-
-.todo-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 12px;
-  margin: 8px 0;
-  background-color: #e8e8e8;
-  border-radius: 5px;
-}
-
-.todo-item .todo-actions {
-  display: flex;
-  gap: 10px; /* Espacement entre les boutons */
-}
-
-/* Tâche terminée */
-.todo-completed {
-  background-color: #e6ffe6; /* Fond vert */
-}
-
-.todo-completed span {
-  color: #2d662d; /* Texte en vert foncé */
-  text-decoration: line-through; /* Texte barré */
-}
-
-/* Bouton Terminer */
-.btn-complete {
-  background-color: #4caf50;
-  color: white;
-  font-size: 1.2rem;
-  padding: 8px;
+  background-color: var(--color-secondary);
+  color: var(--color-background-alt);
+  font-size: 1rem;
+  padding: 10px 20px; /* Plus large pour accueillir le texte */
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.btn-complete:hover {
-  background-color: #45a049;
+.btn-update:hover {
+  background-color: #1976d2;
 }
+
 
 /* Bouton Supprimer */
 .btn-delete {
-  background-color: #f44336;
-  color: white;
-  font-size: 1.5rem;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
+  background-color: var(--color-accent);
+  color: var(--color-background-alt);
 }
 
 .btn-delete:hover {
   background-color: #d32f2f;
 }
 
-/* Message d'information */
-.info-message {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: #f0f9ff;
-  color: #0369a1;
-  border: 1px solid #3b82f6;
+/* Bouton Réinitialiser */
+.btn-reset {
+  background-color: #ff9800;
+  color: var(--color-background-alt);
+}
+
+.btn-reset:hover {
+  background-color: #e65100;
+}
+
+/* Tâches */
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: var(--color-background-alt);
+}
+
+/* Titre de la tâche */
+.todo-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--color-heading);
+}
+
+/* Tâche terminée */
+.todo-completed {
+  background-color: #336633; /* Vert foncé pour le fond des tâches terminées */
+  border: 1px solid #2e7d32; /* Bordure plus foncée */
+}
+
+.todo-completed span {
+  color: #a5d6a7; /* Texte en vert clair */
+  text-decoration: line-through; /* Texte barré */
+}
+
+/* Médias */
+.media-management {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.media-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: var(--color-background);
   border-radius: 5px;
-  font-size: 0.9rem;
+  border: 1px solid var(--color-border);
+}
+
+.media-item a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.media-item a:hover {
+  text-decoration: underline;
 }
